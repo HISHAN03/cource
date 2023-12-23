@@ -4,11 +4,11 @@ import { Card, Typography } from "@mui/material";
 import { useState } from "react";
 import { useRouter } from 'next/router'
 import axios from 'axios';
-function signup() {
+
+function Signup() {
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
-
     const router = useRouter()
     return <div>
         <div style={{
@@ -63,12 +63,8 @@ function signup() {
                             })
                             .catch(function (error) {
                                 console.log(error);
-                            });
-
-
-
-                    }}
-
+                            });}}
+                            
                 > signup</Button>
                 <Button onClick={() => { router.push('/') }}>back</Button>
             </Card>
@@ -76,4 +72,4 @@ function signup() {
     </div>
 }
 
-export default signup;
+export default Signup;

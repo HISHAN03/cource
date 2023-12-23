@@ -1,15 +1,14 @@
 import {User} from "../../db/index";
-import { useRouter } from 'next/navigation'
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '../api/dbConnect';
 dbConnect();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  const router = useRouter();
+
   if (req.method == 'POST') {
     const { name, password } = req.body;
     try {
-      console.log(name+"name")
       
       const newUser= await User.findOne({ username: name});
       console.log(newUser)
@@ -18,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       {
         console.log("User found:", newUser);
         res.status(200).json({ message: 'Signin successful' });
-        //res.redirect('/hishan');
+        // res.redirect('/hishan');
       } 
       else 
       {
